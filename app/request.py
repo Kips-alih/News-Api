@@ -7,7 +7,7 @@ Source=source.Source
 api_key = app.config['NEWS_API_KEY']
 # Getting the source base url
 base_url = app.config["NEWS_API_BASE_URL"]
-# article_url=app.config['ARTICLE_API_URL']
+article_url=app.config['ARTICLE_API_URL']
 
 def get_source(thesource):
     '''
@@ -30,11 +30,11 @@ def get_source(thesource):
 
 def process_sources(source_list):
     '''
-    Function  that processes the movie result and transform them to a list of Objects
+    Function  that processes the source result and transform them to a list of Objects
     Args:
-        sources_list: A list of dictionaries that contain source details
+        sources_list: A list that contain various article sources
     Returns :
-        source_results: A list of source objects
+        news_sources: A list of source objects
     '''
     news_sources = []
     for source_item in source_list:
@@ -50,3 +50,51 @@ def process_sources(source_list):
             news_sources.append(news_object_sources)
 
     return news_sources
+
+
+def get_news(category):
+    '''
+    Function that gets the json response to our url request
+    '''
+    news_article_url =article_url.format(category,api_key)
+
+    with urllib.request.urlopen(news_article_url) as url:
+        get_article_data = url.read()
+        get_article_response = json.loads(get_article_data)
+
+        article_results = None
+
+        if get_article_response['articles']:
+            article_results_list = get_article_response['articles']
+            article_results = process_results(article_results_list)
+
+
+    return article_results
+
+
+def process_results(article_list):
+    '''
+    Function  that processes the article result and transform them to a list of Objects
+
+    Args:
+        article_list: A list that articles
+
+    Returns :
+        article_results: A list of article objects
+    '''
+    article_results = []
+    for article_item in article_list:
+      
+        author = article_item.get('author')
+        title = article_item.get('title')
+        description = article_item.get('description')
+        link = article_item.get('url')
+        poster = article_item.get('urlToImage')
+        publishedAt = article_item.get('publishedAt')
+
+
+        if author:
+            articles_object = source.Article(author,title,description,link,poster,publishedAt)
+            article_results.append(articles_object)
+
+    return article_results
