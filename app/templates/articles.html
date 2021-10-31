@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h3>{{ source}}</h3>
+<ul>
+    {% for article in articles %}
+    <p>{{article.author}}</p>
+    <p>{{article.title}}</p>
+    <p><img src="{{article.poster}}" alt="article_poster"></p>
+    <p>Click <a class="btn btn-primary btn-sm" href="{{article.link}}">here</a> to find out more</p>
+    <p><em>{{ article.publishedAt}}</em></p>
+    {% endfor %}
+</ul>
+
+{% endblock %}

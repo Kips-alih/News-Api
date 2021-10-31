@@ -2,8 +2,16 @@
 
 
 {% block content %}
+<h1>The different news's sources</h1>
+    {% for source in sources %}
+    <p>{{source.name}}</p>
+    <p>{{ source.description }}</p>
+    <p>Click <a href="{{source.url}}">more</a> to explore this source. </p>
+    <p>Click <a href="/articles/{{source.id}}">here</a> to find out the articles from this source.</p>
 
-  <a href="{{ url_for('sources') }}">Sources</a>
-  <h2>Ngwan programming</h2>
+    
+    {% endfor %}
+    
+  <h2>Ngwan programming,Bo murenik</h2>
 {% endblock %}
       
