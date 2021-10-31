@@ -1,15 +1,20 @@
 {% extends 'base.html'%}
+{% import 'macros.html' as macro%}
 
 
 {% block content %}
 <h1>The different news's sources</h1>
-    {% for source in sources %}
+    <!-- {% for source in sources %}
     <p>{{source.name}}</p>
     <p>{{ source.description }}</p>
     <p>Click <a href="{{source.url}}">more</a> to explore this source. </p>
     <p>Click <a href="/articles/{{source.id}}">here</a> to find out the articles from this source.</p>
 
-    
+     -->
+  <div>
+    {{macro.displaySourcesList(sources)}}
+  </div>
+
     {% endfor %}
     
   <h2>Ngwan programming,Bo murenik</h2>
