@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    {% if title %}
-    <title> {{ title }}</title>
-    {% else %}
-    <title> Welcome to The Best News Articles Preview Website </title>
-    {% endif %}
-</head>
-    <body>
+{% extends 'base.html'%}
 
-    </body>
-</html>
+
+{% block content %}
+
+  <a href="{{ url_for('sources') }}">Sources</a>
+  <h2>Ngwan programming</h2>
+{% endblock %}
+      
