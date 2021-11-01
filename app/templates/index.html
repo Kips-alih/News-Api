@@ -1,6 +1,11 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
+<!-- Styles block -->
 
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
 
 {% block content %}
 <body>
@@ -8,21 +13,13 @@
     <div class="row text-center">
       <div class="col-md-12">
         <h1>The different news's sources</h1>
-      <!-- {% for source in sources %}
-      <p>{{source.name}}</p>
-      <p>{{ source.description }}</p>
-      <p>Click <a href="{{source.url}}">more</a> to explore this source. </p>
-      <p>Click <a href="/articles/{{source.id}}">here</a> to find out the articles from this source.</p>
+        <p>Click on the source to find out the source's articles.</p>
+    
+        <div>
+          {{macro.displaySourcesList(sources)}}
+        </div>
   
-       -->
-    <div>
-      {{macro.displaySourcesList(sources)}}
-    </div>
-  
-      {% endfor %}
-      
-    <h2>Ngwan programming,Bo murenik</h2>
-  
+        
       </div>
     </div>
     
