@@ -1,10 +1,10 @@
-# The News-Api
+# The News Website
 
 ## By [Alphonce Kipngeno](https://github.com/Kips-alih) ,October 2021
 
 ## Description
 
-A News Api application where a user can access different news sources and also get the articles from these sources.
+A News Api application where a user can access different news sources, get the articles from these sources and find out more about the articles.
 
 ## Setup/Installation Instructions
 
@@ -15,7 +15,18 @@ A News Api application where a user can access different news sources and also g
 * Run `git clone https://github.com/Kips-alih/News-Api.git`
 * Run `cd News-Api` command to confirm it was successfully cloned.
 
+## User Stories
+
+The user is able to :
+
+* See various news sources on the homepage of the application.
+* Select a news source and see all news articles from the selected news source.
+* See the image, description and the time a news article was created.
+* Click on an article and read the full article on the source website.
+
 ### To run this application
+
+ Click the [live](https://kips-alih.github./) link.
 
 ## Technologies used
 
