@@ -17,7 +17,7 @@ def index():
     title = 'Home - Welcome to The Best News Articles Preview Website'
     return render_template('index.html',title=title,sources=newsource)
 
-@main.route('/articles/<source>',methods=['GET']) 
+@main.route('/articles/<source>') 
 def articles(source):
 
     '''
