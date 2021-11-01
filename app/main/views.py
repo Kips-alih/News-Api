@@ -1,21 +1,23 @@
-from flask import render_template
-from app import app
-from .request import get_source,get_news
+from flask import render_template,url_for
+from . import main
+from ..request import get_source,get_news
+from ..models import Source,Article
+
 
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
 
     '''
     View root page function that returns the index page and its data
     '''
-    source=get_source('sources')
+    newsource=get_source('sources')
 
     title = 'Home - Welcome to The Best News Articles Preview Website'
-    return render_template('index.html',title=title,sources=source)
+    return render_template('index.html',title=title,sources=newsource)
 
-@app.route('/articles/<source>',methods=['GET']) 
+@main.route('/articles/<source>',methods=['GET']) 
 def articles(source):
 
     '''
