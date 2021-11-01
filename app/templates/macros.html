@@ -1,7 +1,7 @@
 {% macro displaySourcesList(source_list) %}
 
     {% for source in source_list %}
-    <a href="/articles/{{source.id}}"><button>{{source.name}}</button></a>
+    <a class="btn-sm btn-success ms-5 mt-5" href="/articles/{{source.id}}">{{source.name}}</a>
     {% endfor %}
 
 {% endmacro %}
