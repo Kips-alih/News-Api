@@ -1,10 +1,7 @@
 {% macro displaySourcesList(source_list) %}
 
     {% for source in source_list %}
-    <h3>{{source.name}}</h3>
-    <p>{{ source.description }}</p>
-    <p>Click <a href="{{source.url}}">more</a> to explore this source. </p>
-    <p>Click <a href="/articles/{{source.id}}">here</a> to find out the articles from this source.</p>
+    <a href="/articles/{{source.id}}"><button>{{source.name}}</button></a>
     {% endfor %}
 
 {% endmacro %}
