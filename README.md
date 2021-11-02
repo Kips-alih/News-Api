@@ -26,7 +26,7 @@ The user is able to :
 
 ### To run this application
 
- Click the [live](https://kips-alih.github./) link.
+ Click the [live](https://the-news-website.herokuapp.com/) link.
 
 ## Technologies used
 
